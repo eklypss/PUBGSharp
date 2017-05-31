@@ -2,13 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>1.0.0.0</Version>
     <Authors />
     <Company />
     <Description>C# wrapper for PUBG stats API provided by https://pubgtracker.com
 
 </Description>
+    <PackageProjectUrl>https://github.com/eklypss/PUBGSharp</PackageProjectUrl>
+    <RepositoryUrl></RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
