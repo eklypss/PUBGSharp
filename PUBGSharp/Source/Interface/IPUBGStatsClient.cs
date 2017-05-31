@@ -2,7 +2,7 @@
 
 namespace PUBGSharp
 {
-    public interface IPUBGSharp
+    public interface IPUBGStatsClient
     {
         Task<StatsResponse> GetPlayerStatsAsync(string playerName);
     }

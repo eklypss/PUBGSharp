@@ -15,7 +15,7 @@ namespace PUBGSharp.Examples
         private async Task MainAsync()
         {
             // Create client and send a stats request
-            var statsClient = new PUBGSharp("api_key_here");
+            var statsClient = new PUBGStatsClient("api_key_here");
             var stats = await statsClient.GetPlayerStatsAsync("OmniDestiny");
 
             // Print out player name and date the stats were last updated at.

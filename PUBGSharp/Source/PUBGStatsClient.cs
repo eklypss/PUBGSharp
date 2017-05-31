@@ -2,11 +2,11 @@
 
 namespace PUBGSharp
 {
-    public class PUBGSharp : IPUBGSharp
+    public class PUBGStatsClient : IPUBGStatsClient
     {
         private Requester _requester;
 
-        public PUBGSharp(string apiKey)
+        public PUBGStatsClient(string apiKey)
         {
             _requester = new Requester(apiKey);
         }
