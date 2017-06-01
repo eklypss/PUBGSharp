@@ -9,7 +9,8 @@ namespace PUBGSharp
         [JsonConverter(typeof(StringEnumConverter))]
         public Region Region { get; set; }
 
-        public string Season { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public Season Season { get; set; }
 
         [JsonProperty("Match")]
         [JsonConverter(typeof(StringEnumConverter))]

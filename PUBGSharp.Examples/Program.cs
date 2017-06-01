@@ -16,23 +16,24 @@ namespace PUBGSharp.Examples
         {
             // Create client and send a stats request
             var statsClient = new PUBGStatsClient("api_key_here");
-            var stats = await statsClient.GetPlayerStatsAsync("OmniDestiny");
+            var stats = await statsClient.GetPlayerStatsAsync("Mithrain");
 
             // Print out player name and date the stats were last updated at.
             Console.WriteLine($"{stats.PlayerName}, last updated at: {stats.LastUpdated}");
 
-            // Print out amount of players WINS (Stat.Wins) in SQUAD mode (Mode.Squad) in ALL regions (Region.AGG)
-            var squadStats = stats.Stats.Where(x => x.Mode == Mode.Squad && x.Region == Region.AGG).FirstOrDefault();
-            var squadWins = squadStats.Stats.Where(x => x.Stat == Stat.Wins).FirstOrDefault();
-            Console.WriteLine($"Squad wins: {squadWins.Value}, rank: {squadWins.Rank}, percentile: {squadWins.Percentile}");
-            // Print out amount of headshots kills in DUO mode in NA region
-            var duoStats = stats.Stats.Where(x => x.Mode == Mode.Duo && x.Region == Region.NA).FirstOrDefault();
+            // Print out amount of players KDR (Stat.KDR) in DUO mode (Mode.Duo) in ALL regions
+            // (Region.AGG) in SEASON 1 (Season.EASeason1).
+            var duoStats = stats.Stats.Where(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Season.EASeason1).FirstOrDefault();
+            var duoKDR = duoStats.Stats.Where(x => x.Stat == Stat.KDR).FirstOrDefault();
+            Console.WriteLine($"DUO KDR: {duoKDR.Value}, percentile: {duoKDR.Percentile}");
+            // Print out amount of headshots kills in SOLO mode in NA region in SEASON 2.
+            var soloStats = stats.Stats.Where(x => x.Mode == Mode.Solo && x.Region == Region.NA && x.Season == Season.EASeason2).FirstOrDefault();
             Console.WriteLine(duoStats.Stats.Where(x => x.Stat == Stat.HeadshotKills).FirstOrDefault().Value);
 
-            /*
-            OmniDestiny, last updated at: 2017-05-30T17:51:06.2705727Z
-            Squad wins: 1, rank: 464228, percentile: 100
-            117
+            /* Outputs:
+            Mithrain, last updated at: 2017-06-01T20:15:46.5702623Z
+            DUO KDR: 2.87, percentile: 8
+            67
             */
 
             await Task.Delay(-1);
