@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.5</TargetFramework>
+    <TargetFrameworks>netstandard1.3;net452</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.0.2</Version>
+    <Version>1.0.0.3</Version>
     <Authors />
     <Company />
     <Description>C# wrapper for PUBG stats API provided by https://pubgtracker.com
