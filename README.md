@@ -6,7 +6,7 @@ C# wrapper for PUBG stats API provided by https://pubgtracker.com
 
 ## Notes
 * The API is maintained and provided by pubgtracker.com and all credits go to them. This project just wraps the API for easy usage in C#.
-* The project targets .NET Standard to maximize compatibility between different platforms.
+* The project targets .NET Framework 4.5 and .NET Core 1.1.
 
 ## Installation
 To add PUBGSharp to your project, run the following command in the NuGet Package Manager Console:
