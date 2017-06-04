@@ -1,5 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/hb3fiwht7531imv6?svg=true)](https://ci.appveyor.com/project/eklypss/pubgsharp)
-[![NuGet](https://img.shields.io/nuget/v/Nuget.Core.svg)](https://www.nuget.org/packages/PUBGSharp/)
+[![NuGet version](https://badge.fury.io/nu/PUBGSharp.svg)](https://badge.fury.io/nu/PUBGSharp)
+
 # PUBGSharp
 C# wrapper for PUBG stats API provided by https://pubgtracker.com
 
