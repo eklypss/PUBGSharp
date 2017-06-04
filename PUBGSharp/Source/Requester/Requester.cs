@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -28,7 +27,6 @@ namespace PUBGSharp
                     string t = await response.Content.ReadAsStringAsync();
                     result = JsonConvert.DeserializeObject<StatsResponse>(t);
                     if (result.AccountId == null) throw new JsonException("Player data is not valid. Player might not exist, or their stats haven't been updated yet.");
-                    Console.WriteLine(t);
                 }
                 catch (JsonException)
                 {
