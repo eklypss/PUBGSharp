@@ -24,8 +24,7 @@ namespace PUBGSharp
                     request.Headers.Add("TRN-Api-Key", ApiKey);
                     HttpResponseMessage response = await http.SendAsync(request);
                     if (!response.IsSuccessStatusCode) throw new HttpRequestException("Could not retrieve stats.");
-                    string t = await response.Content.ReadAsStringAsync();
-                    result = JsonConvert.DeserializeObject<StatsResponse>(t);
+                    result = JsonConvert.DeserializeObject<StatsResponse>(await response.Content.ReadAsStringAsync());
                     if (result.AccountId == null) throw new JsonException("Player data is not valid. Player might not exist, or their stats haven't been updated yet.");
                 }
                 catch (JsonException)
