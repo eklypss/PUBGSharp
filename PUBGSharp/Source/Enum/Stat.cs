@@ -16,8 +16,6 @@ namespace PUBGSharp
         [EnumMember(Value = "Rounds Played")]
         RoundsPlayed,
 
-        Wins,
-
         [EnumMember(Value = "Win Top 10 Ratio")]
         WinTop10Ratio,
 
@@ -26,9 +24,6 @@ namespace PUBGSharp
 
         [EnumMember(Value = "Top 10 Ratio")]
         Top10Ratio,
-
-        Losses,
-        Rating,
 
         [EnumMember(Value = "Best Rating")]
         BestRating,
@@ -63,10 +58,6 @@ namespace PUBGSharp
         [EnumMember(Value = "Top 10s Pg")]
         Top10sPerGame,
 
-        Kills,
-        Assists,
-        Suicides,
-
         [EnumMember(Value = "Team Kills")]
         TeamKills,
 
@@ -93,8 +84,6 @@ namespace PUBGSharp
 
         [EnumMember(Value = "Max Kill Streaks")]
         MaxKillStreaks,
-
-        Days,
 
         [EnumMember(Value = "Longest Time Survived")]
         LongestTimeSurvived,
@@ -126,13 +115,19 @@ namespace PUBGSharp
         [EnumMember(Value = "Longest Kill")]
         LongestKill,
 
-        Heals,
-        Revives,
-        Boosts,
-
         [EnumMember(Value = "Damage Dealt")]
         DamageDealt,
 
+        Wins,
+        Losses,
+        Rating,
+        Kills,
+        Assists,
+        Suicides,
+        Days,
+        Heals,
+        Revives,
+        Boosts,
         DBNOs
     }
 }
