@@ -23,12 +23,12 @@ namespace PUBGSharp.Examples
 
             // Print out amount of players KDR (Stat.KDR) in DUO mode (Mode.Duo) in ALL regions
             // (Region.AGG) in SEASON 1 (Season.EASeason1).
-            var duoStats = stats.Stats.Where(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Season.EASeason1).FirstOrDefault();
-            var duoKDR = duoStats.Stats.Where(x => x.Stat == Stat.KDR).FirstOrDefault();
+            var duoStats = stats.Stats.Find(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Season.EASeason1);
+            var duoKDR = duoStats.Stats.Find(x => x.Stat == Stat.KDR);
             Console.WriteLine($"DUO KDR: {duoKDR.Value}, percentile: {duoKDR.Percentile}");
             // Print out amount of headshots kills in SOLO mode in NA region in SEASON 2.
-            var soloStats = stats.Stats.Where(x => x.Mode == Mode.Solo && x.Region == Region.NA && x.Season == Season.EASeason2).FirstOrDefault();
-            Console.WriteLine(duoStats.Stats.Where(x => x.Stat == Stat.HeadshotKills).FirstOrDefault().Value);
+            var soloStats = stats.Stats.Find(x => x.Mode == Mode.Solo && x.Region == Region.NA && x.Season == Season.EASeason2);
+            Console.WriteLine(duoStats.Stats.Find(x => x.Stat == Stat.HeadshotKills).Value);
 
             /* Outputs:
             Mithrain, last updated at: 2017-06-01T20:15:46.5702623Z
