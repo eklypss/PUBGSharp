@@ -20,10 +20,10 @@ namespace PUBGSharp
                 StatsResponse result = new StatsResponse();
                 try
                 {
-                    HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"https://pubgtracker.com/api/profile/pc/{playerName}?region=agg");
+                    HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"https://pubgtracker.com/api/profile/pc/{playerName}?region={region.ToString().ToLower()}");
                     request.Headers.Add("TRN-Api-Key", ApiKey);
                     HttpResponseMessage response = await http.SendAsync(request);
-                    if (!response.IsSuccessStatusCode) throw new HttpRequestException("Could not retrieve stats.");
+                    if (!response.IsSuccessStatusCode) throw new HttpRequestException($"Could not retrieve stats, status code: {response.StatusCode}.");
                     result = JsonConvert.DeserializeObject<StatsResponse>(await response.Content.ReadAsStringAsync());
                     if (result.AccountId == null) throw new JsonException("Player data is not valid. Player might not exist, or their stats haven't been updated yet.");
                 }
