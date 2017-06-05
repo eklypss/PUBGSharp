@@ -23,8 +23,8 @@ namespace PUBGSharp.Examples
 
             try
             {
-                // Print out amount of players KDR (Stat.KDR) in DUO mode (Mode.Duo) in ALL regions
-                // (Region.AGG) in SEASON 1 (Season.EASeason1).
+                // Print out amount of players KDR (Stat.KDR) in DUO mode (Mode.Duo) in ALL
+                // regions(Region.AGG) in SEASON 1 (Season.EASeason1).
                 var duoStats = stats.Stats.Find(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Season.EASeason1);
                 var duoKDR = duoStats.Stats.Find(x => x.Stat == Stat.KDR);
                 Console.WriteLine($"DUO KDR: {duoKDR.Value}, percentile: {duoKDR.Percentile}");
@@ -33,10 +33,10 @@ namespace PUBGSharp.Examples
                 Console.WriteLine(duoStats.Stats.Find(x => x.Stat == Stat.HeadshotKills).Value);
             }
             /* IMPORTANT STUFF ABOUT EXCEPTIONS:
-             The LINQ methods will throw NullReferenceException in case the stats don't exist.
+             The LINQ methods (e.g. stats.Find) will throw NullReferenceException in case the stats don't exist.
              So if player has no stats in specified region or game mode, it will throw NullReferenceException.
              For example, if you only have played in Europe and try to look up your stats in the Asia server, instead of showing 0's everywhere it throws this.
-             This method will be re-worked in the future, but meanwhile you can just use try/catch and catch the NullReferenceException.
+             This method will be re-worked in the future so the wrapper doesn't rely on LINQ, but meanwhile you can just use try/catch and catch the NullReferenceException.
              */
             catch (NullReferenceException)
             {
