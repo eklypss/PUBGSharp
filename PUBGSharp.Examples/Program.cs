@@ -32,7 +32,7 @@ namespace PUBGSharp.Examples
                 Console.WriteLine(duoStats.Stats.Find(x => x.Stat == Stat.HeadshotKills).Value);
             }
             /* IMPORTANT STUFF ABOUT EXCEPTIONS:
-             The LINQ methods (e.g. stats.Find) will throw NullReferenceException in case the stats don't exist.
+             The LINQ and other selector methods (e.g. stats.Find) will throw NullReferenceException in case the stats don't exist.
              So if player has no stats in specified region or game mode, it will throw NullReferenceException.
              For example, if you only have played in Europe and try to look up your stats in the Asia server, instead of showing 0's everywhere it throws this.
              This method will be re-worked in the future so the wrapper doesn't rely on LINQ, but meanwhile you can just use try/catch and catch the NullReferenceException.
