@@ -27,9 +27,9 @@ namespace PUBGSharp
                     result = JsonConvert.DeserializeObject<StatsResponse>(await response.Content.ReadAsStringAsync());
                     if (result.AccountId == null) throw new JsonException("Player data is not valid. Player might not exist, or their stats haven't been updated yet.");
                 }
-                catch (JsonException)
+                catch (JsonException ex)
                 {
-                    throw new JsonException("Failed to deserialize data. Player might not exist or have stats in specified region or gamemode.");
+                    throw new JsonException($"Failed to deserialize data: {ex.Message}");
                 }
                 return result;
             }

@@ -118,6 +118,9 @@ namespace PUBGSharp
         [EnumMember(Value = "Damage Dealt")]
         DamageDealt,
 
+        [EnumMember(Value = "Knock Outs")]
+        Knockouts,
+
         Wins,
         Losses,
         Rating,
