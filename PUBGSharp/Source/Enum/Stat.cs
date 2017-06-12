@@ -58,6 +58,9 @@ namespace PUBGSharp
         [EnumMember(Value = "Top 10s Pg")]
         Top10sPerGame,
 
+        [EnumMember(Value = "Top 10 Rate")]
+        Top10Rate,
+
         [EnumMember(Value = "Team Kills")]
         TeamKills,
 
