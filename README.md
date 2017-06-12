@@ -16,4 +16,18 @@ To add PUBGSharp to your project, run the following command in the NuGet Package
 You can get your API key from here: https://pubgtracker.com/site-api
 
 ## Usage
-See the Examples project for some basic examples.
+A very basic example, getting the amount of kills player has in duo mode, in all regions combined in Early Access Season 1.
+```
+var statsClient = new PUBGStatsClient("api-key-here");
+var stats = await statsClient.GetPlayerStatsAsync("player-name-here");
+try
+{
+    var kills = stats.Stats.Find(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Season.EASeason1).Stats.Find(x => x.Stat == Stat.KDR);
+    Console.WriteLine($"Solo kills: {kills.Value}");
+}
+catch (NullReferenceException)
+{
+    Console.WriteLine($"Could not retrieve stats for {stats.PlayerName}..");
+}
+```
+For a bit more detailed examples, see the Examples project.
