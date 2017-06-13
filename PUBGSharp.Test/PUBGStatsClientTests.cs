@@ -1,7 +1,5 @@
 ﻿using System;
-using PUBGSharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Threading.Tasks;
 
 namespace PUBGSharp.Test
 {
@@ -12,26 +10,25 @@ namespace PUBGSharp.Test
         [ExpectedException(typeof(ArgumentException))]
         public void PUBGStatsClientConstructor_ShouldRaiseArgumentException_WhenNoKeyProvided()
         {
-            //Arrange        
-            //Act            
+            //Arrange
+            //Act
             var client = new PUBGStatsClient(null);
-            //Assert            
+            //Assert
         }
 
         [TestMethod]
-        public void GetPlayerStatsAsync_ShouldRaiseArgumentException_WhenNoplayerNameProvided()
+        public void GetPlayerStatsAsync_ShouldRaiseArgumentException_WhenNoPlayerNameProvided()
         {
-            //Arrange        
+            //Arrange
             var client = new PUBGStatsClient("dummy");
-            //Act        
+            //Act
             try
             {
                 StatsResponse responseTask = client.GetPlayerStatsAsync(null).Result;
-
             }
             catch (Exception e)
             {
-                //Assert            
+                //Assert
                 //In case of awaitable tasks, aggregate exception is thrown, which should contain expected ArgumentException.
                 Assert.IsInstanceOfType(e.InnerException, typeof(ArgumentException));
             }
