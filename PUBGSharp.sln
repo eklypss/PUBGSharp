@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGSharp", "PUBGSharp\PUBGSharp.csproj", "{297D5C65-11D3-4B6F-96AE-F34C87F6AB15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGSharp.Examples", "PUBGSharp.Examples\PUBGSharp.Examples.csproj", "{8562310F-8BE9-4689-966B-BBB44D069CC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGSharp.Test", "PUBGSharp.Test\PUBGSharp.Test.csproj", "{BED36D1D-D708-49A8-A560-6582A72140FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8562310F-8BE9-4689-966B-BBB44D069CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8562310F-8BE9-4689-966B-BBB44D069CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8562310F-8BE9-4689-966B-BBB44D069CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BED36D1D-D708-49A8-A560-6582A72140FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BED36D1D-D708-49A8-A560-6582A72140FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BED36D1D-D708-49A8-A560-6582A72140FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BED36D1D-D708-49A8-A560-6582A72140FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
