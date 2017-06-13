@@ -29,7 +29,7 @@ namespace PUBGSharp
                 }
                 catch (JsonException ex)
                 {
-                    throw new JsonException($"Failed to deserialize data: {ex.Message}");
+                    throw new JsonException($"Failed to deserialize data: {ex.Message}", ex);
                 }
                 return result;
             }
