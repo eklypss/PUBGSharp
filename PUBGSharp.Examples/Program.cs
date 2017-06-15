@@ -34,12 +34,15 @@ namespace PUBGSharp.Examples
             /* IMPORTANT STUFF ABOUT EXCEPTIONS:
              The LINQ and other selector methods (e.g. .Find) will throw NullReferenceException in case the stats don't exist.
              So if player has no stats in specified region or game mode, it will throw NullReferenceException.
-             For example, if you only have played in Europe and try to look up your stats in the Asia server, instead of showing 0's everywhere it throws this.
-             This method will be re-worked in the future so the wrapper doesn't rely on LINQ, but meanwhile you can just use try/catch and catch the NullReferenceException.
-             */
+             For example, if you only have played in Europe and try to look up your stats in the Asia server, instead of showing 0's everywhere it throws this. */
+            catch (PUBGSharpException ex)
+            {
+                Console.WriteLine($"Could not retrieve stats for {stats.PlayerName}, error: {ex.Message}");
+            }
             catch (NullReferenceException)
             {
-                Console.WriteLine($"Could not retrieve stats for {stats.PlayerName}..");
+                Console.WriteLine($"Could not retrieve stats for {stats.PlayerName}.");
+                Console.WriteLine("The player might not exist or have stats in the specified mode or region.");
             }
 
             /* Outputs:
