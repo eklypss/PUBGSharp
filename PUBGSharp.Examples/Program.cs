@@ -22,12 +22,12 @@ namespace PUBGSharp.Examples
 
             try
             {
-                // Print out amount of players KDR (Stat.KDR) in DUO mode (Mode.Duo) in ALL
+                // Print out amount of players KDR (Stats.KDR) in DUO mode (Mode.Duo) in ALL
                 // regions(Region.AGG) in SEASON 1 (Season.EASeason1).
-                var kdr = stats.Stats.Find(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Season.EASeason1).Stats.Find(x => x.Stat == Stat.KDR).Value;
+                var kdr = stats.Stats.Find(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Season.EASeason1).Stats.Find(x => x.Stat == Stats.KDR).Value;
                 Console.WriteLine($"Duo KDR: {kdr}");
                 // Print out amount of headshots kills in SOLO mode in NA region in SEASON 2.
-                var headshotKills = stats.Stats.Find(x => x.Mode == Mode.Solo && x.Region == Region.NA && x.Season == Season.EASeason2).Stats.Find(x => x.Stat == Stat.HeadshotKills);
+                var headshotKills = stats.Stats.Find(x => x.Mode == Mode.Solo && x.Region == Region.NA && x.Season == Season.EASeason2).Stats.Find(x => x.Stat == Stats.HeadshotKills);
                 // You can also display the stats by using .ToString() on the stat object, e.g:
                 Console.WriteLine(headshotKills.ToString());
             }
