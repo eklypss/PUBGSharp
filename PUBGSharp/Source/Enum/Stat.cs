@@ -22,6 +22,9 @@ namespace PUBGSharp
         [EnumMember(Value = "Top 10s")]
         Top10,
 
+        [EnumMember(Value = "Weapons Acquired")]
+        WeaponsAcquired,
+
         [EnumMember(Value = "Top 10 Ratio")]
         Top10Ratio,
 
