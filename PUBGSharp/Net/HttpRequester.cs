@@ -17,10 +17,8 @@ namespace PUBGSharp.Net
             _client.DefaultRequestHeaders.TryAddWithoutValidation("TRN-Api-Key", apiKey);
         }
 
-        public async Task<StatsResponse> RequestAsync(string playerName, string region = "agg")
+        public virtual async Task<StatsResponse> RequestAsync(string playerName, string region)
         {
-            var result = new StatsResponse();
-
             try
             {
                 using (var response = await _client.GetAsync($"https://pubgtracker.com/api/profile/pc/{playerName}?region={region}"))
@@ -30,20 +28,20 @@ namespace PUBGSharp.Net
                         throw new PUBGSharpException($"Could not retrieve stats, status code: {response.StatusCode}.");
                     }
 
-                    result = JsonConvert.DeserializeObject<StatsResponse>(await response.Content.ReadAsStringAsync());
-
+                    var responseData = await response.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<StatsResponse>(responseData);
                     if (result.AccountId == null)
                     {
                         throw new PUBGSharpException("Player data is not valid. Player might not exist, or their stats have not been updated yet.");
                     }
+
+                    return result;
                 }
             }
             catch (JsonException ex)
             {
                 throw new PUBGSharpException($"Failed to deserialize data: {ex.Message}", ex);
             }
-
-            return result;
         }
 
         public void Dispose()

@@ -9,23 +9,30 @@ namespace PUBGSharp
     {
         private readonly HttpRequester _httpRequester;
 
-        public PUBGStatsClient(string apiKey)
+        /// <summary>
+        ///     Initialises a <see cref="PUBGStatsClient"/>.
+        /// </summary>
+        /// <param name="apiKey">Your tracker network API key. (https://pubgtracker.com/site-api)</param>
+        /// <param name="throttle">Enable or disable throttling, pubgtracker wants to have ~1 request per sec. It is recommended to keep this enabled.</param>
+        public PUBGStatsClient(string apiKey, bool throttle = true)
         {
             if (string.IsNullOrEmpty(apiKey)) {
                 throw new ArgumentException("API key cannot be empty.");
             }
                 
-            _httpRequester = new HttpRequester(apiKey);
+            _httpRequester = throttle ? 
+                new HttpRequesterThrottle(apiKey) : 
+                new HttpRequester(apiKey);
         }
 
-        public async Task<StatsResponse> GetPlayerStatsAsync(string playerName)
+        public async Task<StatsResponse> GetPlayerStatsAsync(string playerName, string region = "agg")
         {
             if (string.IsNullOrEmpty(playerName))
             {
                 throw new ArgumentException("Player name cannot be empty.");
             }
 
-            return await _httpRequester.RequestAsync(playerName);
+            return await _httpRequester.RequestAsync(playerName, region);
         }
 
         public void Dispose()
