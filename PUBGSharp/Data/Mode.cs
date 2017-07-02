@@ -1,4 +1,4 @@
-﻿namespace PUBGSharp
+﻿namespace PUBGSharp.Data
 {
     public enum Mode
     {

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace PUBGSharp
+namespace PUBGSharp.Data
 {
     public enum Season
     {

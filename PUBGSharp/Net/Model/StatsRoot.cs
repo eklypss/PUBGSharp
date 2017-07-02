@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using PUBGSharp.Data;
 
-namespace PUBGSharp
+namespace PUBGSharp.Net.Model
 {
     public class StatsRoot
     {

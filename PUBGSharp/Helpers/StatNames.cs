@@ -1,4 +1,4 @@
-﻿namespace PUBGSharp
+﻿namespace PUBGSharp.Helpers
 {
     // Defines all the stat names provided by the API to be used with LINQ.
     public static class Stats

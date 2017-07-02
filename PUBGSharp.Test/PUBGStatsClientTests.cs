@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PUBGSharp.Net.Model;
 
 namespace PUBGSharp.Test
 {

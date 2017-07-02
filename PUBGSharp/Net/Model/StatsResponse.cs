@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PUBGSharp
+namespace PUBGSharp.Net.Model
 {
     public class StatsResponse
     {
