@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using PUBGSharp.Data;
+using PUBGSharp.Exceptions;
+using PUBGSharp.Helpers;
 
 namespace PUBGSharp.Examples
 {
