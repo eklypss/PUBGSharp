@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace PUBGSharp
+namespace PUBGSharp.Exceptions
 {
     [Serializable]
-    public class PUBGSharpException : Exception
+    public class PUBGSharpException : System.Exception
     {
         public PUBGSharpException() : base()
         {

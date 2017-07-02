@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using PUBGSharp.Net.Model;
 
 namespace PUBGSharp
 {

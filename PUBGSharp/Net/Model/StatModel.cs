@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
-namespace PUBGSharp
+namespace PUBGSharp.Net.Model
 {
     public class StatModel
     {
