@@ -7,6 +7,7 @@
         EU,     // Europe
         AS,     // Asia
         OC,     // Oceania
-        SA      // South America
+        SA,     // South America
+        SEA     //South East Asia
     }
 }
