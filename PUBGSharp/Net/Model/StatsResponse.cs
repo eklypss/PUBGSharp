@@ -11,5 +11,6 @@ namespace PUBGSharp.Net.Model
         public string PlayerName { get; set; }
         public int PubgTrackerId { get; set; }
         public List<StatsRoot> Stats { get; set; }
+        public List<LiveTrackingStat> LiveTracking { get; set; }
     }
 }
