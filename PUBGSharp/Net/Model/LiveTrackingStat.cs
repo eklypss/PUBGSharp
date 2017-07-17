@@ -14,6 +14,8 @@ namespace PUBGSharp.Net.Model
         [JsonConverter(typeof(StringEnumConverter))]
         public Region Region { get; set; }
 
+        public int Season { get; set; }
+
         public DateTime Date { get; set; }
 
         public double Delta { get; set; }
