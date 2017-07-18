@@ -27,14 +27,12 @@ namespace PUBGSharp.Net
                     {
                         throw new PUBGSharpException($"Could not retrieve stats, status code: {response.StatusCode}.");
                     }
-
                     var responseData = await response.Content.ReadAsStringAsync();
                     var result = JsonConvert.DeserializeObject<StatsResponse>(responseData);
                     if (result.AccountId == null)
                     {
                         throw new PUBGSharpException("Player data is not valid. Player might not exist, or their stats have not been updated yet.");
                     }
-
                     return result;
                 }
             }

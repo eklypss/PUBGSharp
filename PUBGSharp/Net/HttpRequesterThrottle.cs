@@ -21,17 +21,13 @@ namespace PUBGSharp.Net
             try
             {
                 _queue.WaitOne();
-
                 var diff = DateTime.UtcNow - _lastRequest;
                 if (diff < TimeSpan.FromSeconds(1))
                 {
                     await Task.Delay(TimeSpan.FromSeconds(1) - TimeSpan.FromMilliseconds(diff.TotalMilliseconds));
                 }
-                
-                var response =  await base.RequestAsync(playerName, region);
-
+                var response = await base.RequestAsync(playerName, region);
                 _lastRequest = DateTime.UtcNow;
-
                 return response;
             }
             finally

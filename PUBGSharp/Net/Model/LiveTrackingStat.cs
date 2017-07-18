@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using PUBGSharp.Data;
-using System;
 
 namespace PUBGSharp.Net.Model
 {
