@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using PUBGSharp.Data;
 using PUBGSharp.Net.Model;
 
 namespace PUBGSharp.Net
@@ -16,7 +17,7 @@ namespace PUBGSharp.Net
             _queue = new Semaphore(1, 1);
         }
 
-        public override async Task<StatsResponse> RequestAsync(string playerName, string region)
+        public override async Task<StatsResponse> RequestAsync(string playerName, Region region)
         {
             try
             {

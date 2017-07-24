@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using PUBGSharp.Data;
 using PUBGSharp.Net;
 using PUBGSharp.Net.Model;
 
@@ -26,7 +27,7 @@ namespace PUBGSharp
             _httpRequester = throttle ? new HttpRequesterThrottle(apiKey) : new HttpRequester(apiKey);
         }
 
-        public async Task<StatsResponse> GetPlayerStatsAsync(string playerName, string region = "agg")
+        public async Task<StatsResponse> GetPlayerStatsAsync(string playerName, Region region = Region.AGG)
         {
             if (string.IsNullOrEmpty(playerName))
             {

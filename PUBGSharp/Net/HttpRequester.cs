@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using PUBGSharp.Data;
 using PUBGSharp.Exceptions;
 using PUBGSharp.Net.Model;
 
@@ -17,11 +18,11 @@ namespace PUBGSharp.Net
             _client.DefaultRequestHeaders.TryAddWithoutValidation("TRN-Api-Key", apiKey);
         }
 
-        public virtual async Task<StatsResponse> RequestAsync(string playerName, string region)
+        public virtual async Task<StatsResponse> RequestAsync(string playerName, Region region)
         {
             try
             {
-                using (var response = await _client.GetAsync($"https://pubgtracker.com/api/profile/pc/{playerName}?region={region}"))
+                using (var response = await _client.GetAsync($"https://pubgtracker.com/api/profile/pc/{playerName}?region={region.ToString().ToLower()}"))
                 {
                     if (!response.IsSuccessStatusCode)
                     {
