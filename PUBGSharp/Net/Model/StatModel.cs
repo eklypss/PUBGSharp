@@ -14,7 +14,7 @@ namespace PUBGSharp.Net.Model
         // Custom ToString() method. Percentile isn't displayed as it seems to be empty in most stats.
         public override string ToString()
         {
-            return $"Stat: {Stat.ToString()}, value: {Value}, Rank: #{Rank}";
+            return $"Stat: {Stat}, value: {Value}, Rank: #{Rank}";
         }
     }
 }
