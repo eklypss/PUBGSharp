@@ -3,7 +3,7 @@
 namespace PUBGSharp.Exceptions
 {
     [Serializable]
-    public class PUBGSharpException : System.Exception
+    public class PUBGSharpException : Exception
     {
         public PUBGSharpException() : base()
         {
