@@ -10,8 +10,7 @@ namespace PUBGSharp.Net.Model
         [JsonConverter(typeof(StringEnumConverter))]
         public Region Region { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
-        public Season Season { get; set; }
+        public string Season { get; set; }
 
         [JsonProperty("Match")]
         [JsonConverter(typeof(StringEnumConverter))]

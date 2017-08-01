@@ -1,6 +1,8 @@
 ﻿namespace PUBGSharp.Helpers
 {
-    // Defines all the stat names provided by the API to be used with LINQ / IEnumerable selector functions.
+    /// <summary>
+    /// Defines all the stat names provided by the API to be used with LINQ / IEnumerable selector functions.
+    /// </summary>
     public static class Stats
     {
         public const string KDR = "K/D Ratio";

@@ -1,10 +1,12 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace PUBGSharp.Data
 {
     /// <summary>
     /// Season to retrieve stats from.
     /// </summary>
+    [Obsolete("Use the static PUBGSharp.Helpers.Seasons class instead.")]
     public enum Season
     {
         [EnumMember(Value = "2017-pre1")]
