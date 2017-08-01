@@ -11,6 +11,9 @@ namespace PUBGSharp.Data
         EASeason1,
 
         [EnumMember(Value = "2017-pre2")]
-        EASeason2
+        EASeason2,
+
+        [EnumMember(Value = "2017-pre3")]
+        EASeason3
     }
 }
