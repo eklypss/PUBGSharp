@@ -23,8 +23,8 @@ var statsClient = new PUBGStatsClient("api-key-here");
 var stats = await statsClient.GetPlayerStatsAsync("player-name-here");
 try
 {
-    var kills = stats.Stats.Find(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Seasons.EASeason1).Stats.Find(x => x.Stat == Stats.KDR);
-    Console.WriteLine($"Solo kills: {kills.Value}");
+    var kdr = stats.Stats.Find(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Seasons.EASeason1).Stats.Find(x => x.Stat == Stats.KDR);
+    Console.WriteLine($"Solo KDR: {kdr.Value}");
 }
 catch (NullReferenceException)
 {
