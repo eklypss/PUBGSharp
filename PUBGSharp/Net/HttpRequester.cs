@@ -22,13 +22,13 @@ namespace PUBGSharp.Net
         {
             try
             {
-                using (var response = await _client.GetAsync($"https://pubgtracker.com/api/profile/pc/{playerName}?region={region.ToString().ToLower()}"))
+                using (var response = await _client.GetAsync($"https://pubgtracker.com/api/profile/pc/{playerName}?region={region.ToString().ToLower()}").ConfigureAwait(false))
                 {
                     if (!response.IsSuccessStatusCode)
                     {
                         throw new PUBGSharpException($"Could not retrieve stats, status code: {response.StatusCode}.");
                     }
-                    var responseData = await response.Content.ReadAsStringAsync();
+                    var responseData = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                     var result = JsonConvert.DeserializeObject<StatsResponse>(responseData);
                     if (result.AccountId == null)
                     {

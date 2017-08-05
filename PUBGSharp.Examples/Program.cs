@@ -20,7 +20,7 @@ namespace PUBGSharp.Examples
             // dispose the PUBGStatsClient manually with the Dispose method.
             using (var statsClient = new PUBGStatsClient("api-key-here"))
             {
-                var stats = await statsClient.GetPlayerStatsAsync("Mithrain");
+                var stats = await statsClient.GetPlayerStatsAsync("Mithrain").ConfigureAwait(false);
 
                 // Print out player name and date the stats were last updated at.
                 Console.WriteLine($"{stats.PlayerName}, last updated at: {stats.LastUpdated}");
