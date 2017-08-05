@@ -17,14 +17,14 @@ To add PUBGSharp to your project, run the following command in the NuGet Package
 You can get your API key from here: https://pubgtracker.com/site-api
 
 ## Usage
-A very basic example, getting the amount of kills player has in duo mode, in all regions combined in Early Access Season 1.
+A very basic example, getting the KDR of the specified player in duo mode, in all regions combined in Early Access Season 1.
 ```
 var statsClient = new PUBGStatsClient("api-key-here");
 var stats = await statsClient.GetPlayerStatsAsync("player-name-here");
 try
 {
     var kdr = stats.Stats.Find(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Seasons.EASeason1).Stats.Find(x => x.Stat == Stats.KDR);
-    Console.WriteLine($"Solo KDR: {kdr.Value}");
+    Console.WriteLine($"Duo KDR: {kdr.Value}");
 }
 catch (NullReferenceException)
 {
