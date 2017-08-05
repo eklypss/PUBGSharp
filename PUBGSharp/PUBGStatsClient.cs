@@ -33,7 +33,7 @@ namespace PUBGSharp
             {
                 throw new ArgumentException("Player name cannot be empty.");
             }
-            return await _httpRequester.RequestAsync(playerName, region);
+            return await _httpRequester.RequestAsync(playerName, region).ConfigureAwait(false);
         }
 
         public void Dispose()

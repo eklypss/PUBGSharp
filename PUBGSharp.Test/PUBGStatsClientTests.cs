@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PUBGSharp.Net.Model;
 
@@ -18,21 +19,13 @@ namespace PUBGSharp.Test
         }
 
         [TestMethod]
-        public void GetPlayerStatsAsync_ShouldRaiseArgumentException_WhenNoPlayerNameProvided()
+        [ExpectedException(typeof(ArgumentException))]
+        public async Task GetPlayerStatsAsync_ShouldRaiseArgumentException_WhenNoPlayerNameProvided()
         {
             //Arrange
             var client = new PUBGStatsClient("dummy");
             //Act
-            try
-            {
-                StatsResponse responseTask = client.GetPlayerStatsAsync(null).Result;
-            }
-            catch (Exception e)
-            {
-                //Assert
-                //In case of awaitable tasks, aggregate exception is thrown, which should contain expected ArgumentException.
-                Assert.IsInstanceOfType(e.InnerException, typeof(ArgumentException));
-            }
+            StatsResponse responseTask = await client.GetPlayerStatsAsync(null).ConfigureAwait(false);
         }
     }
 }

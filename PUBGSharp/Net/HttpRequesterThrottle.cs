@@ -27,7 +27,7 @@ namespace PUBGSharp.Net
                 {
                     await Task.Delay(TimeSpan.FromSeconds(1) - TimeSpan.FromMilliseconds(diff.TotalMilliseconds));
                 }
-                var response = await base.RequestAsync(playerName, region);
+                var response = await base.RequestAsync(playerName, region).ConfigureAwait(false);
                 _lastRequest = DateTime.UtcNow;
                 return response;
             }
