@@ -35,6 +35,11 @@ namespace PUBGSharp.Examples
                     var headshotKills = stats.Stats.Find(x => x.Mode == Mode.Solo && x.Region == Region.NA && x.Season == Seasons.EASeason2).Stats.Find(x => x.Stat == Stats.HeadshotKills);
                     // You can also display the stats by using .ToString() on the stat object, e.g:
                     Console.WriteLine(headshotKills.ToString());
+
+                    // Print out amount of kills in the last season player has played in:
+                    var latestSeasonSoloStats = stats.Stats.FindLast(x => x.Mode == Mode.Solo);
+                    var kills = latestSeasonSoloStats.Stats.Find(x => x.Stat == Stats.Kills);
+                    Console.WriteLine($"Season: {latestSeasonSoloStats.Season}, kills: {kills.Value}");
                 }
                 /* IMPORTANT STUFF ABOUT EXCEPTIONS:
                  The LINQ and other selector methods (e.g. .Find) will throw NullReferenceException in case the stats don't exist.
@@ -51,9 +56,10 @@ namespace PUBGSharp.Examples
                 }
 
                 /* Outputs:
-                Mithrain, last updated at: 2017-06-13T19:12:24.0579462Z
+                Mithrain, last updated at: 2017-09-07T19:53:40.3611629Z
                 Duo KDR: 2.87
-                Stat: HeadshotKills, value: 54, Rank: #533
+                Stat: Headshot Kills, value: 69, Rank: #
+                Season: 2017-pre4, kills: 32
                 */
             }
 
