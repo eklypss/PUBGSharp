@@ -39,6 +39,7 @@ namespace PUBGSharp
         public void Dispose()
         {
             _httpRequester?.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }
