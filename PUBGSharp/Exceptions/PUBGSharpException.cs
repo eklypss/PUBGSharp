@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace PUBGSharp.Exceptions
 {
@@ -23,10 +22,6 @@ namespace PUBGSharp.Exceptions
         }
 
         public PUBGSharpException(string format, Exception innerException, params object[] args) : base(string.Format(format, args), innerException)
-        {
-        }
-
-        protected PUBGSharpException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }
