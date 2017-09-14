@@ -16,8 +16,7 @@ namespace PUBGSharp.Net.Model
         public string SeasonDisplay { get; set; }
 
         [JsonProperty("MatchDisplay")]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public Mode Mode { get; set; }
+        public string Mode { get; set; }
 
         public Region Region { get; set; }
 

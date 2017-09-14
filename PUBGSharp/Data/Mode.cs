@@ -1,4 +1,6 @@
-﻿namespace PUBGSharp.Data
+﻿using System.Runtime.Serialization;
+
+namespace PUBGSharp.Data
 {
     /// <summary>
     /// Gamemode to retrieve stats from.
@@ -7,6 +9,15 @@
     {
         Solo,
         Duo,
-        Squad
+        Squad,
+
+        [EnumMember(Value = "solo-fpp")]
+        SoloFpp,
+
+        [EnumMember(Value = "duo-fpp")]
+        DuoFpp,
+
+        [EnumMember(Value = "squad-fpp")]
+        SquadFpp,
     }
 }
