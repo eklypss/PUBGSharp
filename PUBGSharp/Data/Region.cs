@@ -11,6 +11,7 @@
         AS,     // Asia
         OC,     // Oceania
         SA,     // South America
-        SEA     // South East Asia
+        SEA,     // South East Asia
+        KRJP    // Korea Japan
     }
 }
