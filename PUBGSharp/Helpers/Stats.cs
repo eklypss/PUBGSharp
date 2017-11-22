@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines all the stat names provided by the API to be used with LINQ / IEnumerable selector functions.
     /// </summary>
-    public static class Stats
+    public class Stats
     {
         public const string KDR = "K/D Ratio";
         public const string WinPercentage = "Win %";

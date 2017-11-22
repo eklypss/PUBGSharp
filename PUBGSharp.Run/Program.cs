@@ -23,13 +23,17 @@ namespace PUBGSharp.Run
             using (var statsClient = new PUBGStatsClient("api-key-here"))
             {
                 // Searching for Player and Mode
-                var stats = await statsClient.GetPlayerStatsAsync("EmloYY", mode: Mode.Solo).ConfigureAwait(false);
+                var stats = await statsClient.GetPlayerStatsAsync("shroud", mode: Mode.Solo).ConfigureAwait(false);
+
+                // Searching for Player and specific value
+                // the 1 seconds throttle applies her too, keep that in mind
+                var test = await statsClient.GetPlayerStatsValue("shroud", mode: Mode.Solo, value: Stats.KDR);
 
                 // Searching for Player, Region, Mode
-                //var stats = await statsClient.GetPlayerStatsAsync("EmloYY",region: Region.EU, mode: Mode.Solo).ConfigureAwait(false);
+               // var stats = await statsClient.GetPlayerStatsAsync("shroud",region: Region.NA, mode: Mode.Solo).ConfigureAwait(false);
 
                 // Searching for Player, Region
-                //var stats = await statsClient.GetPlayerStatsAsync("EmloYY", region: Region.EU).ConfigureAwait(false);
+               // var stats = await statsClient.GetPlayerStatsAsync("shroud", region: Region.NA).ConfigureAwait(false);
 
                 // Print out player name and date the stats were last updated at.
                 Console.WriteLine($"{stats.nickname}, last updated at: {stats.LastUpdated}");
