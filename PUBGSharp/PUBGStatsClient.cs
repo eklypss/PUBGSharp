@@ -27,13 +27,13 @@ namespace PUBGSharp
             _httpRequester = throttle ? new HttpRequesterThrottle(apiKey) : new HttpRequester(apiKey);
         }
 
-        public async Task<StatsResponse> GetPlayerStatsAsync(string playerName, Region region = Region.AGG)
+        public async Task<StatsResponse> GetPlayerStatsAsync(string playerName, Region region = Region.AGG, Mode mode = Mode.All)
         {
             if (string.IsNullOrEmpty(playerName))
             {
                 throw new ArgumentException("Player name cannot be empty.");
             }
-            return await _httpRequester.RequestAsync(playerName, region).ConfigureAwait(false);
+            return await _httpRequester.RequestAsync(playerName, region, mode).ConfigureAwait(false);
         }
 
         public void Dispose()

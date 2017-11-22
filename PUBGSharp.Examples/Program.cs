@@ -20,13 +20,20 @@ namespace PUBGSharp.Examples
             // dispose the PUBGStatsClient manually with the Dispose method.
             using (var statsClient = new PUBGStatsClient("api-key-here"))
             {
-                var stats = await statsClient.GetPlayerStatsAsync("Mithrain").ConfigureAwait(false);
+                var stats = await statsClient.GetPlayerStatsAsync("Mithrain", Region.AGG).ConfigureAwait(false);
 
                 // Print out player name and date the stats were last updated at.
-                Console.WriteLine($"{stats.PlayerName}, last updated at: {stats.LastUpdated}");
+                Console.WriteLine($"{stats.nickname}, last updated at: {stats.LastUpdated}");
 
                 try
                 {
+                    //Print out Region chosen with mode selected
+                    // Stats[0] = the region u selected, eg EU in this example
+                    // Stats[1] = region AGG. The API also outputs the AGG values even when you select a specific region.
+                    var latestKillstats = stats.Stats[0].Stats.Find(x => x.Stat == Stats.Kills);
+
+                    //The Find method from APIv1 still works in APIv2
+
                     // Print out amount of players KDR (Stats.KDR) in DUO mode (Mode.Duo) in ALL
                     // regions (Region.AGG) in SEASON 1 (Seasons.EASeason1).
                     var kdr = stats.Stats.Find(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Seasons.EASeason1).Stats.Find(x => x.Stat == Stats.KDR).Value;
@@ -47,11 +54,11 @@ namespace PUBGSharp.Examples
                  For example, if you only have played in Europe and try to look up your stats in the Asia server, instead of showing 0's everywhere it throws this. */
                 catch (PUBGSharpException ex)
                 {
-                    Console.WriteLine($"Could not retrieve stats for {stats.PlayerName}, error: {ex.Message}");
+                    Console.WriteLine($"Could not retrieve stats for {stats.nickname}, error: {ex.Message}");
                 }
                 catch (NullReferenceException)
                 {
-                    Console.WriteLine($"Could not retrieve stats for {stats.PlayerName}.");
+                    Console.WriteLine($"Could not retrieve stats for {stats.nickname}.");
                     Console.WriteLine("The player might not exist or have stats in the specified mode or region.");
                 }
 
