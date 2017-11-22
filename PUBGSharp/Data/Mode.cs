@@ -19,5 +19,8 @@ namespace PUBGSharp.Data
 
         [EnumMember(Value = "squad-fpp")]
         SquadFpp,
+
+        [EnumMember(Value = "all")]
+        All,
     }
 }

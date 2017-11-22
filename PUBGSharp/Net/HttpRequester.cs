@@ -18,11 +18,16 @@ namespace PUBGSharp.Net
             _client.DefaultRequestHeaders.TryAddWithoutValidation("TRN-Api-Key", apiKey);
         }
 
-        public virtual async Task<StatsResponse> RequestAsync(string playerName, Region region)
+        public virtual async Task<StatsResponse> RequestAsync(string playerName, Region region, Mode mode)
         {
             try
             {
-                using (var response = await _client.GetAsync($"https://pubgtracker.com/api/profile/pc/{playerName}?region={region.ToString().ToLower()}").ConfigureAwait(false))
+                string request = $"https://api.pubgtracker.com/v2/profile/pc/{playerName}?region={region.ToString().ToLower()}";
+                if(mode != Mode.All)
+                {
+                    request += $"&mode={mode.ToString().ToLower()}";
+                }
+                using (var response = await _client.GetAsync(request).ConfigureAwait(false))
                 {
                     if (!response.IsSuccessStatusCode)
                     {
@@ -30,7 +35,7 @@ namespace PUBGSharp.Net
                     }
                     var responseData = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                     var result = JsonConvert.DeserializeObject<StatsResponse>(responseData);
-                    if (result.AccountId == null)
+                    if (result.accountId == null)
                     {
                         throw new PUBGSharpException("Player data is not valid. Player might not exist, or their stats have not been updated yet.");
                     }

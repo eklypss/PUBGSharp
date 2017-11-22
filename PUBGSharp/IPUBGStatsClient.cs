@@ -6,6 +6,6 @@ namespace PUBGSharp
 {
     public interface IPUBGStatsClient
     {
-        Task<StatsResponse> GetPlayerStatsAsync(string playerName, Region region);
+        Task<StatsResponse> GetPlayerStatsAsync(string playerName, Region region, Mode mode);
     }
 }

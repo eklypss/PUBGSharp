@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using PUBGSharp.Data;
 using PUBGSharp.Exceptions;
 using PUBGSharp.Helpers;
-
-namespace PUBGSharp.Examples
+namespace PUBGSharp.Run
 {
-    internal class Program
+    class Program
     {
         private Program()
         {
@@ -20,7 +22,14 @@ namespace PUBGSharp.Examples
             // dispose the PUBGStatsClient manually with the Dispose method.
             using (var statsClient = new PUBGStatsClient("api-key-here"))
             {
-                var stats = await statsClient.GetPlayerStatsAsync("Mithrain", Region.AGG).ConfigureAwait(false);
+                // Searching for Player and Mode
+                var stats = await statsClient.GetPlayerStatsAsync("EmloYY", mode: Mode.Solo).ConfigureAwait(false);
+
+                // Searching for Player, Region, Mode
+                //var stats = await statsClient.GetPlayerStatsAsync("EmloYY",region: Region.EU, mode: Mode.Solo).ConfigureAwait(false);
+
+                // Searching for Player, Region
+                //var stats = await statsClient.GetPlayerStatsAsync("EmloYY", region: Region.EU).ConfigureAwait(false);
 
                 // Print out player name and date the stats were last updated at.
                 Console.WriteLine($"{stats.nickname}, last updated at: {stats.LastUpdated}");
@@ -31,19 +40,8 @@ namespace PUBGSharp.Examples
                     // Stats[0] = the region u selected, eg EU in this example
                     // Stats[1] = region AGG. The API also outputs the AGG values even when you select a specific region.
                     var latestKillstats = stats.Stats[0].Stats.Find(x => x.Stat == Stats.Kills);
-
-                    //The Find method from APIv1 still works in APIv2
-
-                    // Print out amount of players KDR (Stats.KDR) in DUO mode (Mode.Duo) in ALL
-                    // regions (Region.AGG) in SEASON 1 (Seasons.EASeason1).
-                    var kdr = stats.Stats.Find(x => x.Mode == Mode.Duo && x.Region == Region.AGG && x.Season == Seasons.EASeason1).Stats.Find(x => x.Stat == Stats.KDR).Value;
-                    Console.WriteLine($"Duo KDR: {kdr}");
-                    // Print out amount of headshots kills in SOLO mode in NA region in SEASON 2.
-                    var headshotKills = stats.Stats.Find(x => x.Mode == Mode.Solo && x.Region == Region.NA && x.Season == Seasons.EASeason2).Stats.Find(x => x.Stat == Stats.HeadshotKills);
-                    // You can also display the stats by using .ToString() on the stat object, e.g:
-                    Console.WriteLine(headshotKills.ToString());
-
                     // Print out amount of kills in the last season player has played in:
+                    // This old searching method from the APIv1 still works!
                     var latestSeasonSoloStats = stats.Stats.FindLast(x => x.Mode == Mode.Solo);
                     var kills = latestSeasonSoloStats.Stats.Find(x => x.Stat == Stats.Kills);
                     Console.WriteLine($"Season: {latestSeasonSoloStats.Season}, kills: {kills.Value}");

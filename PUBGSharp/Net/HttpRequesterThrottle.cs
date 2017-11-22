@@ -17,7 +17,7 @@ namespace PUBGSharp.Net
             _queue = new Semaphore(1, 1);
         }
 
-        public override async Task<StatsResponse> RequestAsync(string playerName, Region region)
+        public override async Task<StatsResponse> RequestAsync(string playerName, Region region, Mode mode)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace PUBGSharp.Net
                 {
                     await Task.Delay(TimeSpan.FromSeconds(1) - TimeSpan.FromMilliseconds(diff.TotalMilliseconds));
                 }
-                var response = await base.RequestAsync(playerName, region).ConfigureAwait(false);
+                var response = await base.RequestAsync(playerName, region, mode).ConfigureAwait(false);
                 _lastRequest = DateTime.UtcNow;
                 return response;
             }

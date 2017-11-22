@@ -7,16 +7,18 @@ namespace PUBGSharp.Net.Model
 {
     public class StatsRoot
     {
+        [JsonProperty("region")]
         [JsonConverter(typeof(StringEnumConverter))]
         public Region Region { get; set; }
 
+        [JsonProperty("season")]
         public string Season { get; set; }
 
-        [JsonProperty("Match")]
+        [JsonProperty("mode")]
         [JsonConverter(typeof(StringEnumConverter))]
         public Mode Mode { get; set; }
 
-        [JsonProperty("Stats")]
+        [JsonProperty("stats")]
         public List<StatModel> Stats { get; set; }
     }
 }
