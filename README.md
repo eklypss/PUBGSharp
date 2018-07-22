@@ -1,4 +1,4 @@
-# Imporatant update 2018
+# Important update (2018)
 As of **April 2018**, this project will become completely obsolete by the introduction of the [official PUBG Developer API](https://developer.playbattlegrounds.com/). This project **will not be updated** to support the official API, but there might be a new, separate project created from scratch that will do so at some point. Thanks to everyone who contributed to this project.
 
 
